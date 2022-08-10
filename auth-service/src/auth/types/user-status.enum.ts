@@ -1,0 +1,6 @@
+export enum UserStatus {
+  ACTIVE = 'ACTIVE',
+  CLOSED = 'CLOSED',
+  CANCELED = 'CANCELED',
+  BLACKLISTED = 'BLACKLISTED',
+}

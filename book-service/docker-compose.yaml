@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:5.0.6
+    restart: always
+    container_name: bookdb
+    ports:
+      - 27017:27017
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: books
+    image: bookservice
+    restart: always
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - PORT=${PORT}
+      - JWK_URI=${JWK_URI}
+    ports:
+      - 3000:3000
